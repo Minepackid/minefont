@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MineFont · Penyedia Ikon</title>
+  <link rel="stylesheet" href="/framework/minefont/main.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #0b0d15;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #e4e9f2;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      max-width: 1400px;
+      width: 100%;
+    }
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #2a2e3f;
+      padding-bottom: 1.5rem;
+    }
+    .header h1 {
+      font-weight: 700;
+      font-size: 2.4rem;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #c0b7ff, #8f7cff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header h1 small {
+      font-size: 1rem;
+      font-weight: 400;
+      background: #252a3a;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      -webkit-text-fill-color: #b3b9d0;
+      letter-spacing: 0.3px;
+    }
+    .stats {
+      background: #171c2b;
+      padding: 0.5rem 1.4rem;
+      border-radius: 60px;
+      font-size: 0.95rem;
+      border: 1px solid #2b3145;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.4);
+    }
+    .stats span {
+      color: #b7c0e6;
+    }
+    .stats strong {
+      color: #d6dfff;
+      font-weight: 600;
+    }
+    .toolbar {
+      margin-bottom: 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      align-items: center;
+    }
+    .toolbar input {
+      flex: 1;
+      min-width: 220px;
+      padding: 0.9rem 1.5rem;
+      border-radius: 60px;
+      border: 1px solid #2f354b;
+      background: #141a28;
+      color: #f0f3ff;
+      font-size: 1rem;
+      outline: none;
+      transition: 0.2s;
+    }
+    .toolbar input:focus {
+      border-color: #7b6bff;
+      box-shadow: 0 0 0 3px rgba(106, 87, 255, 0.3);
+    }
+    .toolbar input::placeholder {
+      color: #5b637c;
+    }
+    .filter-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: #1a1f31;
+      border: 1px solid #2b3147;
+      color: #b7bfda;
+      padding: 0.5rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .filter-btn.active {
+      background: #3b3270;
+      border-color: #6d5cff;
+      color: white;
+      box-shadow: 0 0 12px #3f34aa40;
+    }
+    .filter-btn:hover {
+      background: #282f48;
+      color: white;
+    }
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .icon-card {
+      background: #131a27;
+      border-radius: 20px;
+      padding: 1.5rem 0.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #22293e;
+      transition: 0.15s ease;
+      cursor: default;
+      box-shadow: 0 8px 18px -6px rgba(0, 0, 0, 0.6);
+      text-align: center;
+    }
+    .icon-card:hover {
+      background: #1c253b;
+      border-color: #4a4170;
+      transform: translateY(-2px);
+    }
+    .icon-card .mc {
+      font-size: 2.2rem;
+      color: #d6dfff;
+      margin-bottom: 0.5rem;
+    }
+    .icon-card .icon-name {
+      font-size: 0.7rem;
+      color: #8891b0;
+      background: #1e253a;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      border: 1px solid #2a314a;
+      font-family: 'SF Mono', monospace;
+      word-break: break-word;
+      max-width: 100%;
+    }
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 4rem 0;
+      color: #5b637c;
+      font-size: 1.2rem;
+    }
+    .empty-state span {
+      display: block;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      .header h1 small {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.7rem;
+      }
+      .icon-grid {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 0.8rem;
+      }
+      .icon-card .mc {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="mc cube"></i> MineFont <small>v1.0</small></h1>
+      <div class="stats">
+        <span><i class="mc cube"></i> <strong id="total-icons">0</strong> ikon</span>
+      </div>
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="searchInput" placeholder=" Cari ikon..." autofocus />
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="all">Semua</button>
+        <button class="filter-btn" data-filter="outline">Outline</button>
+        <button class="filter-btn" data-filter="solid">Solid</button>
+      </div>
+    </div>
+
+    <div class="icon-grid" id="iconGrid"></div>
+  </div>
+
+  <script>
+    (function() {
+      const allIcons = [
+        'category', 'search', 'home', 'user', 'users', 'heart', 'heart-plus', 'heart-crack',
+        'download', 'upload', 'cloud-upload', 'log-in', 'log-out', 'user-plus',
+        'plus', 'minus', 'arrow-left', 'arrow-right', 'chevron-left', 'chevron-right',
+        'send', 'save', 'edit', 'trash', 'trash-2', 'flag', 'bell', 'calendar-days',
+        'shield', 'tachometer', 'users-cog', 'ellipsis', 'ellipsis-v', 'hamburger',
+        'check-circle', 'check', 'rocket', 'medal', 'eye', 'chart-line', 'award',
+        'trophy', 'globe', 'puzzle', 'layers', 'texture', 'image', 'announcement',
+        'shield-check', 'spinner-loading', 'cube', 
+        'filter', 'filter-value', 'filter-line', 'sort-down', 'sort-up', 'random',
+        'clock', 'rotate', 'cross', 'info-circle', 'exclamation-circle',
+        'exclamation-triangle', 'square-arrow-out-up-right', 'wifi-slash', 'refresh',
+        'share-alt', 'copy', 'twitter', 'star-badge', 'repeat-2', 'camera-off',
+        'camera', 'image-off', 'file', 'text-start', 'list', 'lock', 'crop',
+        'filter-funnel', 'star-solid', 'crown', 'tsirt', 'whatsapp', 'tiktok',
+        'fire', 'telegram', 'facebook', 'envelope', 'heart-solid', 'label', 'outline-tag',
+        'circle', 'youtube'
+      ];
+
+      const solidIcons = new Set([
+        'filter-funnel', 'star-solid-badge', 'crown', 'skin', 'whatsapp', 'tiktok',
+        'fire', 'telegram', 'facebook', 'envelope', 'heart-solid', 'label', 'outline-tag',
+        'circle', 'youtube'
+      ]);
+
+      const iconGrid = document.getElementById('iconGrid');
+      const searchInput = document.getElementById('searchInput');
+      const totalSpan = document.getElementById('total-icons');
+      const filterBtns = document.querySelectorAll('.filter-btn');
+
+      let currentFilter = 'all';
+      let currentSearch = '';
+
+      function renderIcons() {
+        const filtered = allIcons.filter(name => {
+          const matchesSearch = name.toLowerCase().includes(currentSearch.toLowerCase());
+          const isSolid = solidIcons.has(name);
+          const matchesFilter = currentFilter === 'all' ||
+            (currentFilter === 'solid' && isSolid) ||
+            (currentFilter === 'outline' && !isSolid);
+          return matchesSearch && matchesFilter;
+        });
+
+        totalSpan.textContent = filtered.length;
+
+        if (filtered.length === 0) {
+          iconGrid.innerHTML = `
+            <div class="empty-state">
+              <span><i class="mc search"></i></span>
+              Tidak ada ikon yang cocok
+            </div>
+          `;
+          return;
+        }
+
+        iconGrid.innerHTML = filtered.map(name => {
+          const isSolid = solidIcons.has(name);
+          const typeLabel = isSolid ? 'solid' : 'outline';
+          return `
+            <div class="icon-card">
+              <i class="mc ${name}"></i>
+              <span class="icon-name">${name}</span>
+            </div>
+          `;
+        }).join('');
+      }
+
+      searchInput.addEventListener('input', function() {
+        currentSearch = this.value;
+        renderIcons();
+      });
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          currentFilter = this.dataset.filter;
+          renderIcons();
+        });
+      });
+
+      renderIcons();
+
+      if (typeof window.MineFontAutoAlign !== 'undefined') {
+        window.MineFontAutoAlign.reinit();
+      } else {
+        let attempts = 0;
+        const interval = setInterval(() => {
+          if (typeof window.MineFontAutoAlign !== 'undefined') {
+            window.MineFontAutoAlign.reinit();
+            clearInterval(interval);
+          }
+          attempts++;
+          if (attempts > 20) clearInterval(interval);
+        }, 300);
+      }
+    })();
+  </script>
+</body>
+</html>
