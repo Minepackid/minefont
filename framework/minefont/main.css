@@ -1,0 +1,7 @@
+/* framework for https://minepacknode-five.vercel.app */
+
+@import "src/setting/_default.css";
+@import "src/elements/icon.outline.css";
+@import "src/elements/icon.solid.css";
+@import "spinner/main.spin.css";
+
